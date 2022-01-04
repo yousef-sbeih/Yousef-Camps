@@ -1,0 +1,43 @@
+<%layout('layouts/boilerplate')%>
+<div class="d-flex flex-column align-items-center" >
+  <h1 class="mb-3">Edit campground</h1>
+  <form action="/campgrounds/<%=camp.id %>?_method=PUT" method="post" style="width: 700px; height: 500px;" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">title</label>
+      <input type="text" class="form-control" id="title" name="campground[title]" value="<%=camp.title %>" required/>
+      
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">location</label>
+      <input type="text" class="form-control" id="location" name="campground[location]" value="<%=camp.location %>" required/>
+      
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Add images</label>
+      <input type="file" class="form-control" id="image" name="image" value="<%=camp.image %>" required multiple/>
+      
+    </div>
+    
+    <label for="price" class="form-label">price</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Amount (to the nearest dollar)"
+        id="price"
+        name="campground[price]"
+        value="<%=camp.price %>"
+        required
+      />
+      
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">description</label>
+      <textarea type="text" class="form-control" id="description" name="campground[description]" required /><%=camp.description %></textarea>
+    </div>
+    <button class="btn btn-primary">Edit campground</button>
+  </form>
+  
+</div>
+
